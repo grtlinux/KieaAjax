@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>투명도 변경</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {
+		var btn1 = document.getElementById("btn1");
+		ajax.Event.addListener(btn1, "click", doClickOnBtn1);
+	}
+	function doClickOnBtn1() {
+		var view = document.getElementById("view");
+		var opacityVal = document.f.opacity.value;
+		if (opacityVal != '') {
+			ajax.GUI.setOpacity(view, eval(opacityVal));
+		}
+	}
+	</script>
+	<style type="text/css">
+	div.black {
+		position: absolute;
+		left: 20px;
+		top: 70px;
+		font-weight: bold;
+		color: #000000;
+		background-color: #CCCCCC;
+	}
+	</style>
+</head>
+<body>
+<form name="f">
+투명도: <input type="text" name="opacity" size="5" value="" />
+<input type="button" id="btn1" value="투명도 지정" />
+</form>
+
+<div>
+	투명색 텍스트입니다.<br/>
+	이 view가 투명해질 경우 이 부분이<br/>
+	출력됩니다.
+</div>
+<div id="view" class="black">투명도 적용 영역</div>
+</body>
+</html>

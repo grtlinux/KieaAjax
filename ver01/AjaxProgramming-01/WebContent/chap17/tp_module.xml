@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="euc-kr" ?>
+
+<Module>
+	<ModulePrefs title="포토 앨범" height="200" />
+	<UserPref name="rotationTime" display_name="교환주기(초)" datatype="enum">
+		<EnumValue value="3" />
+		<EnumValue value="5" />
+		<EnumValue value="7" />
+	</UserPref>
+	<Content type="html">
+		<![CDATA[
+			<script type="text/javascript" 
+			   src="http://javacan.madvirus.net/ajaxbook/chap17/today_photo.js">
+			</script>
+			<script type="text/javascript">
+			_IG_RegisterOnloadHandler(function() {
+				var prefs = new _IG_Prefs(__MODULE_ID__);
+				var time = prefs.getInt("rotationTime");
+				if (time == null || time == 0) {
+					time = 3;
+				}
+				var tps = new tp.TodayPhotoSlide(time * 1000, "show");
+			});
+			</script>
+			<div id="show" style="text-align: center; width: 100%; height: 190px"></div>
+		]]>
+	</Content>
+</Module>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="간단한 사진" height="200" />
+    <UserPref name="bgcolor" display_name="배경색" />
+    <Content type="html">
+        <![CDATA[
+        <div style="text-align: center; background-color: __UP_bgcolor__">
+        <img src="http://javacan.madvirus.net/ajaxbook/chap17/fig01.jpg"
+             height="200"/>
+        </div>
+        ]]>
+    </Content>
+</Module>

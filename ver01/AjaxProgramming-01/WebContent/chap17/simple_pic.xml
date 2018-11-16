@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="간단한 사진" height="200" />
+    <Content type="html">
+        <![CDATA[
+        <div style="text-align: center">
+        <img src="http://javacan.madvirus.net/ajaxbook/chap17/fig01.jpg"
+             height="200"/>
+        </div>
+        ]]>
+    </Content>
+</Module>

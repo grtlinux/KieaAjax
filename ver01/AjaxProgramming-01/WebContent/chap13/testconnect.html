@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>외부 연결 테스트</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+	
+	window.onload = function() {
+		new ajax.xhr.Request(
+			"http://javacan.madvirus.net/main/content/content_rss_list.tle",
+			null,
+			loadContent,
+			"GET");
+	}
+	function loadContent(req) {
+		if (req.readyState == 4) {
+			var result = document.getElementById("result");
+			if (req.status == 200) {
+				result.innerHTML = "로딩 성공";
+			} else {
+				result.innerHTML = "로딩 실패: "+req.status;
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+<div id="result"></div>
+</body>
+</html>

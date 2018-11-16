@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>네이버 오픈 API</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript" src="naversearch.js"></script>
+	<script type="text/javascript">
+	var naverSearch = null;
+	naverOpenAPIKey = "8b7f2a*******************1645"; // 알맞게 수정
+	
+	window.onload = function() {
+		var options = {
+			queryInput: "query",
+			searchButton: "searchBtn",
+			checkKin: "kin",
+			checkBlog: "blog",
+			checkWebkr: "webkr",
+			resultTable: "searchResultView"
+		};
+		naverSearch = new NaverSearch(options);
+	}
+	</script>
+	<link rel="stylesheet" type="text/css" href="naversearch.css">
+</head>
+<body>
+
+<div id="searchForm">
+	<img src="images/naver.gif" />
+	<label for="query">검색어</label>
+	<input type="text" name="query" id="query" />
+	<input type="button" id="searchBtn" value="검색" />
+	
+	<input type="checkbox" name="kin" id="kin" value="kin" checked="checked"/>
+	<label for="kin">지식인</label>
+	<input type="checkbox" name="blog" id="blog" value="blog"/>
+	<label for="blog">블로그</label>
+	<input type="checkbox" name="webkr" id="webkr" value="webkr"/>
+	<label for="webkr">웹</label>
+</div>
+
+<table id="searchResultView"><tr></tr></table>
+
+<div id="footer">
+네이버 오픈 API를 사용한 검색 서비스 제공
+</div>
+
+</body>
+</html>

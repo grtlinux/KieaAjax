@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>드래그 앤 드롭 테스트</title>
+	<style type="text/css">
+	#inventory {
+		position: absolute;
+		border: 1px solid blue;
+		left: 30px; top: 30px;
+		width: 250px; height: 330px;
+	}
+	#cart {
+		position: absolute;
+		border: 1px solid red;
+		left: 350px; top: 30px;
+		width: 250px; height: 330px;
+	}
+	div.dragsource {
+		background-color: #ddd;
+		padding-top: 5px; padding-bottom: 5px;
+		margin-top: 1px; margin-bottom: 1px;
+		width: 250px;
+		font-size: 12px;
+	}
+	div.title {
+		font-weight: bold;
+		border-bottom: 1px solid #333;
+	}
+	</style>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript" src="dnd.js"></script>
+	<script type="text/javascript">
+	var dndMgr = new ajax.dnd.DNDManager();
+	
+	window.onload = function() {
+		var product1 = new ajax.dnd.DragSource("product1");
+		var product2 = new ajax.dnd.DragSource("product2");
+		var product3 = new ajax.dnd.DragSource("product3");
+		
+		var inventory = new ajax.dnd.DropTarget("inventory");
+		var cart = new ajax.dnd.DropTarget("cart");
+		
+		dndMgr.addDropTarget(inventory);
+		dndMgr.addDropTarget(cart);
+		
+		dndMgr.addDragSource(product1);
+		dndMgr.addDragSource(product2);
+		dndMgr.addDragSource(product3);
+	}
+	</script>
+</head>
+<body>
+<div id="inventory">
+	<div class="title">상품목록</div>
+	<div id="product1" class="dragsource">
+		<img src="product1.jpg" />삼성 센스 Q35</div>
+	<div id="product2" class="dragsource">
+		<img src="product2.jpg" />LG XNOTE S1-J214</div>
+	<div id="product3" class="dragsource">
+		<img src="product3.jpg" />SONY 바이오 VGN-FE15LP</div>
+</div>
+<div id="cart"><div class="title">장바구니</div></div>
+</body>
+</html>

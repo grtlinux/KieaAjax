@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="안녕하세요 예제" />
+    <Content type="html">
+        <![CDATA[
+        안녕하세요! 구글 베이스 예제입니다.
+        ]]>
+    </Content>
+</Module>

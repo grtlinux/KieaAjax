@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>위치값 구하기</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+	ajax.Event.addListener(window, "load", viewPosition);
+	
+	function viewPosition() {
+		var testPos = ajax.GUI.getXY(document.getElementById("test"));
+		var endPos = ajax.GUI.getXY(document.getElementById("end"));
+		var absPos = ajax.GUI.getXY(document.getElementById("abs"));
+		
+		alert("test 위치: ["+testPos.x+","+testPos.y+"]\n"+
+		      "end 위치: ["+endPos.x+","+endPos.y+"]\n"+
+		      "abs위치: ["+absPos.x+","+absPos.y+"]");
+	}
+	</script>
+	<link rel="stylesheet" type="text/css" href="position.css">
+</head>
+<body>
+<div id="doc">
+   <h1>위치 구하기 예제: getXY</h1>
+   <p>이 예제는 ajax.GUI.getXY 함수를 사용해서<br/>
+   요소의 위치를 구하는 예제입니다.</p>
+   <div id="test"></div>
+   <div id="end"></div>
+   <div id="abs"></div>
+</div>
+</body>
+</html>

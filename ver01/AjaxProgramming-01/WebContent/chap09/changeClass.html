@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>CSS Class 변경</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {
+		var redRadio = document.getElementById("red");
+		var blueRadio = document.getElementById("blue");
+		var blackRadio = document.getElementById("black");
+		
+		ajax.Event.addListener(redRadio, "click", 
+			ajax.Event.bindAsListener(doClickOnRadio, redRadio));
+		ajax.Event.addListener(blueRadio, "click",
+			ajax.Event.bindAsListener(doClickOnRadio, blueRadio));
+		ajax.Event.addListener(blackRadio, "click", 
+			ajax.Event.bindAsListener(doClickOnRadio, blackRadio));
+	}
+	
+	function doClickOnRadio() {
+		var view = document.getElementById("view");
+		view.className = this.value;
+	}
+	</script>
+	<style type="text/css">
+	div.red {
+		font-weight: bold;
+		color: red;
+		background-color: #00FFFF;
+	}
+	div.blue {
+		font-weight: bold;
+		color: blue;
+		background-color: #FFFF00;
+	}
+	div.black {
+		font-weight: bold;
+		color: #000000;
+		background-color: #CCCCCC;
+	}
+	</style>
+</head>
+<body>
+<div id="view" class="black">스킨을 변경해보세요.</div>
+<form name="f">
+<input type="radio" name="skinName" id="red" value="red" />RED
+<input type="radio" name="skinName" id="blue" value="blue" />BLUE
+<input type="radio" name="skinName" id="black" value="black" checked="checked" />BLACK
+</form>
+</body>
+</html>

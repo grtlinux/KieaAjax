@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="간단한 사진" height="200" />
+    <UserPref name="usebgcolor" display_name="사용"
+              datatype="bool" default_value="false"  />
+    <UserPref name="bgcolor" display_name="배경색" datatype="enum" >
+        <EnumValue value="red" display_value="빨강"/>
+        <EnumValue value="blue" display_value="파랑" />
+        <EnumValue value="gray" display_value="회색" />
+        <EnumValue value="black" display_value="검정" />
+    </UserPref>
+    <Content type="html">
+        <![CDATA[
+        <div id="canvas" style="text-align: center">
+        <img src="http://javacan.madvirus.net/ajaxbook/chap17/fig01.jpg"
+             height="200"/>
+        </div>
+        <script type="text/javascript">
+            var prefs = new _IG_Prefs(__MODULE_ID__);
+            var bgcolorPref = prefs.getString("bgcolor");
+            var usebgcolorPref = prefs.getBool("usebgcolor");
+            if (usebgcolorPref && bgcolorPref != null) {
+                var canvas = _gel("canvas");
+                canvas.style.backgroundColor = bgcolorPref;
+            }
+        </script>
+        ]]>
+    </Content>
+</Module>

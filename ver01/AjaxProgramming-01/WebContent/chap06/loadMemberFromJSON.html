@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>JSON으로부터 객체 생성</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {
+		new ajax.xhr.Request("member_json.jsp", "", viewInfo, "GET");
+	}
+	function viewInfo(req) {
+		if (req.readyState == 4) {
+			if (req.status == 200) {
+				var result = eval("(" + req.responseText + ")");
+				if (result.code == 'success') {
+					var m = result.data.member;
+					alert(m.id + "[" + m.name + "]");
+				} else {
+					alert("실패");
+				}
+			} else {
+				alert("에러 발생:"+req.status);
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+</body>
+</html>

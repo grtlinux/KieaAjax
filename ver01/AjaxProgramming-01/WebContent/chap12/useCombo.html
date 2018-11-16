@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>ComboBox 컴포넌트 사용</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript" src="uicombo.js"></script>
+	<script type="text/javascript">
+	var category1 = null;
+	var category2 = null;
+	
+	window.onload = function() {
+		var values = [
+			{text: '노트북', value: '001'},
+			{text: '데스크톱', value: '002'},
+			{text: 'LCD', value: '003'},
+			{text: '광마우스', value: '004'},
+			{text: '무선키보드', value: '005'},
+			{text: 'DVD', value: '006'}
+		];
+		category1 = new ajax.uicombo.ComboBox('category1', values);
+		category2 = new ajax.uicombo.ComboBox('category2', []);
+		
+		var addBtn = document.getElementById("addBtn");
+		ajax.Event.addListener(addBtn, "click", doClickOnAdd);
+		
+		var removeBtn = document.getElementById("removeBtn");
+		ajax.Event.addListener(removeBtn, "click", doClickOnRemove);
+	}
+	function doClickOnAdd() {
+		var text = document.getElementById("itemText").value;
+		var value = document.getElementById("itemValue").value;
+		category2.addItem(text, value);
+	}
+	function doClickOnRemove() {
+		var idx = document.getElementById("itemIdx").value;
+		category2.removeItem(parseInt(idx));
+	}
+	</script>
+</head>
+<body>
+<div>
+	<label for="itemText">이름:<input type="text" id="itemText" size="10"/>
+	<label for="itemValue">값:<input type="text" id="itemValue" size="5"/>
+	<input type="button" value="카테고리2 추가" id="addBtn"/>
+</div>
+<div>
+	<label for="itemIdx">인덱스:<input type="text" id="itemIdx" size="2"/>
+	<input type="button" value="카테고리2 삭제" id="removeBtn"/>
+</div>
+
+<table>
+<tr>
+	<td><div id="category1" style="width: 150px; "></div></td>
+	<td><div id="category2" style="width: 150px; "></div></td>
+</tr>
+</table>
+</body>
+</html>

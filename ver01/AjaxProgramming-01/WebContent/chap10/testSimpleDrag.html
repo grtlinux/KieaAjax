@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>Simple Drag 테스트</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript" src="dnd.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {
+		var drag1 = new ajax.dnd.SimpleDragSource("car");
+		var drag2 = new ajax.dnd.SimpleDragSource("navi");
+	}
+	</script>
+	<style type="text/css">
+	#navi {
+		position: absolute;
+		background-color: #aaa;
+		left: 200px; top: 90px;
+		width: 150px; height: 80px;
+	}
+	</style>
+</head>
+<body>
+<img src="car.jpg" id="car"/>
+자동차 이미지를 생각해봅시다.
+<div id="navi">
+	플로팅 메뉴<br/>
+	메뉴1<br/>메뉴2
+</div>
+</body>
+</html>

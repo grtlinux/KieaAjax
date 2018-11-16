@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>포토 테스트</title>
+	
+	<script type="text/javascript" src="chap17/ajax.js"></script>
+	<script type="text/javascript" src="chap17/today_photo.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {
+		var tps = new tp.TodayPhotoSlide(5000, "show");
+	}
+	</script>
+</head>
+<body>
+사진 출력
+<div id="show" style="width: 100px; height: 100px; border: 1px solid #999"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+	<title>이벤트 전파 예제</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript" src="log.js"></script>
+	<script type="text/javascript">
+	window.onload = function() {
+		var grand = document.getElementById("grand");
+		var parent = document.getElementById("parent");
+		var child = document.getElementById("child");
+		
+		ajax.Event.addListener(grand, "mousedown", grandHandler, false);
+		ajax.Event.addListener(parent, "mousedown", parentHandlerCapture, true);
+		ajax.Event.addListener(parent, "mousedown", parentHandler, false);
+		ajax.Event.addListener(child, "mousedown", childHandler, false);
+	}
+	function grandHandler(event) {
+		log("grand");
+	}
+	function parentHandler(event) {
+		log("parent");
+	}
+	function parentHandlerCapture(event) {
+		log("parent capture");
+	}
+	function childHandler(event) {
+		log("child");
+	}
+	</script>
+</head>
+<body>
+<div id="grand" style="border:1px solid #333">
+grand의 상단
+	<div id="parent" style="border:1px solid red">
+	parent의 상단
+		<div id="child" style="border:1px solid blue">
+		child
+		</div>
+	parent의 하단
+	</div>
+grand의 하단
+</div>
+<div id="debugConsole" style="border: 1px solid #000"></div>
+</body>
+</html>
